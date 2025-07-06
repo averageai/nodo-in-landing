@@ -22,7 +22,7 @@ export default function Home() {
         <h1 className="text-3xl md:text-5xl font-light leading-tight mb-6">
           No somos una IA.<br />
           <span className="text-[#71F14F]">Somos Humanos + AI</span><br />
-          que la implementan para ayudarte a enfocarte en lo que sí importa.
+          que crean sistemas para ayudarte a enfocarte en lo que sí importa.
         </h1>
         <p className="text-gray-400 text-base md:text-lg mb-4">
           Creamos sistemas que trabajan por ti. Tú te quedas con los resultados.
