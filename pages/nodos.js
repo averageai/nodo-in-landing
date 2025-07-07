@@ -49,7 +49,7 @@ export default function Nodos() {
             className="w-[300px] h-[620px] rounded-[2.5rem] border-[10px] border-black shadow-2xl overflow-hidden transform transition duration-700 hover:scale-105 hover:shadow-green-500/30 opacity-0 animate-fade-up"
           >
             <Image
-              src="/preview-nodo.jpeg"
+              src="/preview-nodo.png"
               alt="Demo Nodo IN"
               width={300}
               height={620}
