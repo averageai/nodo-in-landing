@@ -27,7 +27,7 @@ export default function Home() {
         <p className="text-gray-400 text-base md:text-lg mb-4">
           Creamos sistemas que trabajan por ti. Tú te quedas con los resultados.
         </p>
-        <a href="#nodos" className="bg-[#71F14F] text-black px-6 py-2 rounded font-semibold hover:bg-green-400 transition">
+        <a href="/nodos" className="bg-[#71F14F] text-black px-6 py-2 rounded font-semibold hover:bg-green-400 transition">
           Ver cómo funciona Nodo IN
         </a>
       </section>
@@ -36,13 +36,13 @@ export default function Home() {
       <section className="text-center max-w-3xl mx-auto mb-24">
         <h2 className="text-3xl mb-4">¿Quiénes somos?</h2>
         <p className="text-gray-400">
-          Somos una agencia de Humanos + AI. Creamos soluciones técnicas que automatizan, organizan y escalan tu operación, sin que tengas que entender tecnología. Nos enfocamos en lo que funciona, no en lo que suena bonito.
+          Somos una agencia de Humanos + IA. Creamos soluciones tecnologícas que automatizan, organizan y escalan tu operación, sin que tengas que entender tecnología. Nos enfocamos en lo que funciona, no en lo que suena bonito.
         </p>
       </section>
 
-      {/* Bundle AI */}
+      {/* Paquete IA */}
       <section className="max-w-5xl mx-auto text-left mb-24">
-        <h2 className="text-3xl text-center mb-10">¿Qué incluye el Bundle AI?</h2>
+        <h2 className="text-3xl text-center mb-10">¿Qué incluye el Paquete IA?</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-[#181818] p-6 rounded-xl">
             <h3 className="text-xl text-[#71F14F]">Nodo IN</h3>
@@ -67,7 +67,7 @@ export default function Home() {
       <section className="text-center max-w-3xl mx-auto mb-24">
         <h2 className="text-3xl mb-4">La Agencia</h2>
         <p className="text-gray-400">
-          Para quienes quieren escalar en serio. Gestionamos contenido, anuncios, SEO y estrategia digital con Humanos + AI. Operamos en segundo plano, tú ves los resultados.
+          Para quienes quieren escalar (Growth). Gestionamos contenido, anuncios, SEO y estrategia digital con Humanos + AI. Operamos en segundo plano, tú ves los resultados.
         </p>
       </section>
 
@@ -77,18 +77,18 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-[#181818] p-4 rounded-xl">
             <h3 className="text-[#71F14F] text-xl mb-1">Peluquería / Spa</h3>
-            <p>Automatización de agenda y mensajes de seguimiento. Aumento del 40% en reactivación de clientes.</p>
+            <p>Automatización de agenda y mensajes de seguimiento. Aumento del 40% en clientes que vuelven.</p>
           </div>
           <div className="bg-[#181818] p-4 rounded-xl">
             <h3 className="text-[#71F14F] text-xl mb-1">Restaurante local</h3>
-            <p>Pedidos por WhatsApp con validación de stock. Respuesta 10x más rápida que antes.</p>
+            <p>Pedidos por WhatsApp en automatico. Respuesta 10x más rápida que antes.</p>
           </div>
         </div>
       </section>
 
       {/* Escalado */}
       <section className="text-center max-w-3xl mx-auto mb-24">
-        <h2 className="text-3xl mb-4">¿Cómo escalo?</h2>
+        <h2 className="text-3xl mb-4">¿Cómo escalo (Growth)?</h2>
         <p className="text-gray-400">
           Empiezas con un Nodo IN. Luego conectas el CRM. Activas campañas. Y si todo funciona, te unes a la Agencia.
         </p>
@@ -99,12 +99,12 @@ export default function Home() {
         <h2 className="text-3xl mb-10">Lo que dicen nuestros clientes</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-[#181818] p-6 rounded-xl">
-            <p className="italic">“Yo no sabía ni automatizar una agenda. Ahora no tengo que hacerlo.”</p>
-            <p className="text-gray-400 mt-2">– Laura, Estética en Medellín</p>
+            <p className="italic">“Yo no sabía ni usar una agenda virtual. Ahora todo se agenda solo y no tengo que hacerlo yo.”</p>
+            <p className="text-gray-400 mt-2">– Laura, Estética</p>
           </div>
           <div className="bg-[#181818] p-6 rounded-xl">
             <p className="italic">“Los pedidos me llegan listos y yo solo entrego. Esto vale oro.”</p>
-            <p className="text-gray-400 mt-2">– Andrés, Restaurante en Pereira</p>
+            <p className="text-gray-400 mt-2">– Andrés, Restaurante</p>
           </div>
         </div>
       </section>
@@ -112,7 +112,7 @@ export default function Home() {
       {/* CTA Final */}
       <section className="text-center max-w-3xl mx-auto mb-20">
         <h2 className="text-3xl mb-4">¿Listo para probarlo en tu negocio?</h2>
-        <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" className="bg-[#71F14F] text-black px-8 py-3 rounded font-semibold hover:bg-green-400 transition">
+        <a href="https://wa.me/447717190625" target="_blank" rel="noopener noreferrer" className="bg-[#71F14F] text-black px-8 py-3 rounded font-semibold hover:bg-green-400 transition">
           Agenda una llamada
         </a>
       </section>
