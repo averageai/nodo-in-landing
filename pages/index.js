@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -27,9 +28,11 @@ export default function Home() {
         <p className="text-gray-400 text-base md:text-lg mb-4">
           Creamos sistemas que trabajan por ti. Tú te quedas con los resultados.
         </p>
-        <a href="/nodos" className="bg-[#71F14F] text-black px-6 py-2 rounded font-semibold hover:bg-green-400 transition">
-          Ver cómo funciona Nodo IN
-        </a>
+        <Link href="/nodos">
+          <span className="bg-[#71F14F] text-black px-6 py-2 rounded font-semibold hover:bg-green-400 transition">
+            Ver cómo funciona Nodo IN
+          </span>
+        </Link>
       </section>
 
       {/* Quiénes somos */}
