@@ -43,7 +43,7 @@ export default function Nodos() {
           </div>
         </div>
 
-        {/* 📱 Lado derecho: Mockup iPhone con imagen */}
+        {/* 📱 Lado derecho: Mockup animado */}
         <div className="flex justify-center">
           <div
             className="w-[300px] h-[620px] rounded-[2.5rem] border-[10px] border-black shadow-2xl overflow-hidden transform transition duration-700 hover:scale-105 hover:shadow-green-500/30 opacity-0 animate-fade-up"
