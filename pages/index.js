@@ -6,7 +6,7 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white px-6 py-10">
       <Head>
         <title>Asistente IA | average.ai</title>
-        <meta name="description" content="Asistentes IA – Sistemas Humanos + AI que atienden y cierran ventas por ti." />
+        <meta name="description" content="Asistentes IA – Sistemas Humanos + IA que atienden y cierran ventas por ti." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -22,7 +22,7 @@ export default function Home() {
         <img src="/logo.png" alt="average.ai logo" className="mx-auto h-14 mb-6" />
         <h1 className="text-3xl md:text-5xl font-light leading-tight mb-6">
           No somos una IA.<br />
-          <span className="text-[#71F14F]">Somos Humanos + AI</span><br />
+          <span className="text-[#71F14F]">Somos Humanos + IA</span><br />
           que crean sistemas para ayudarte a enfocarte en lo que sí importa.
         </h1>
         <p className="text-gray-400 text-base md:text-lg mb-4">
@@ -70,7 +70,7 @@ export default function Home() {
       <section className="text-center max-w-3xl mx-auto mb-24">
         <h2 className="text-3xl mb-4">La Agencia</h2>
         <p className="text-gray-400">
-          Para quienes quieren escalar (Growth). Gestionamos contenido, anuncios, SEO y estrategia digital con Humanos + AI. Operamos en segundo plano, tú ves los resultados.
+          Para quienes quieren escalar (Growth). Gestionamos contenido, anuncios, SEO y estrategia digital con Humanos + IA. Operamos en segundo plano, tú ves los resultados.
         </p>
       </section>
 
