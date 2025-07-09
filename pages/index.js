@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10">
       <Head>
-        <title>Nodo IN | average.ai</title>
-        <meta name="description" content="Nodo IN – Sistemas Humanos + AI que atienden y cierran ventas por ti." />
+        <title>Asistente IA | average.ai</title>
+        <meta name="description" content="Asistentes IA – Sistemas Humanos + AI que atienden y cierran ventas por ti." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -30,7 +30,7 @@ export default function Home() {
         </p>
         <Link href="/nodos">
           <span className="bg-[#71F14F] text-black px-6 py-2 rounded font-semibold hover:bg-green-400 transition">
-            Ver cómo funciona Nodo IN
+            Ver cómo funciona Asistentes IA
           </span>
         </Link>
       </section>
@@ -48,7 +48,7 @@ export default function Home() {
         <h2 className="text-3xl text-center mb-10">¿Qué incluye el Paquete IA?</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-[#181818] p-6 rounded-xl">
-            <h3 className="text-xl text-[#71F14F]">Nodo IN</h3>
+            <h3 className="text-xl text-[#71F14F]">Asistente IA</h3>
             <p>Sistemas que atienden y cierran ventas en automático.</p>
           </div>
           <div className="bg-[#181818] p-6 rounded-xl">
@@ -93,7 +93,7 @@ export default function Home() {
       <section className="text-center max-w-3xl mx-auto mb-24">
         <h2 className="text-3xl mb-4">¿Cómo escalo (Growth)?</h2>
         <p className="text-gray-400">
-          Empiezas con un Nodo IN. Luego conectas el CRM. Activas campañas. Y si todo funciona, te unes a la Agencia.
+          Empiezas con un Asistente IA. Luego conectas el CRM. Activas campañas. Y si todo funciona, te unes a la Agencia.
         </p>
       </section>
 
