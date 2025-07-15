@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
   const [showLoading, setShowLoading] = useState(true);
@@ -51,7 +52,7 @@ export default function Home() {
       {showLoading && (
         <div className="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center loading-screen">
           <div className="flex flex-col items-center">
-            <img src="/logo.png" alt="average.ai logo" className="h-14 mb-4" />
+            <Image src="/logo.png" alt="average.ai logo" width={56} height={56} className="h-14 mb-4" />
             <div className="cursor-blink"></div>
           </div>
         </div>
@@ -72,7 +73,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="text-center mt-10 mb-20">
-        <img src="/logo.png" alt="average.ai logo" className="mx-auto h-14 mb-6" />
+        <Image src="/logo.png" alt="average.ai logo" width={56} height={56} className="mx-auto h-14 mb-6" />
         <h1 className="text-3xl md:text-5xl font-light leading-tight mb-6">
           No somos una IA.<br />
           <span className="text-[#71F14F]">Somos Humanos + IA</span><br />
@@ -183,7 +184,7 @@ export default function Home() {
             className="bg-[#181818] p-6 rounded-xl"
             data-delay="0.1s"
           >
-            <p className="italic">"Yo no sabía ni usar una agenda virtual. Ahora todo se agenda solo y no tengo que hacerlo yo."</p>
+            <p className="italic">&quot;Yo no sabía ni usar una agenda virtual. Ahora todo se agenda solo y no tengo que hacerlo yo.&quot;</p>
             <p className="text-gray-400 mt-2">– Laura, Estética</p>
           </div>
           <div 
@@ -191,7 +192,7 @@ export default function Home() {
             className="bg-[#181818] p-6 rounded-xl"
             data-delay="0.2s"
           >
-            <p className="italic">"Los pedidos me llegan listos y yo solo entrego. Esto vale oro."</p>
+            <p className="italic">&quot;Los pedidos me llegan listos y yo solo entrego. Esto vale oro.&quot;</p>
             <p className="text-gray-400 mt-2">– Andrés, Restaurante</p>
           </div>
         </div>

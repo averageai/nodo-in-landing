@@ -38,7 +38,7 @@ export default function Nodos() {
       {showLoading && (
         <div className="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center loading-screen">
           <div className="flex flex-col items-center">
-            <img src="/logo.png" alt="average.ai logo" className="h-14 mb-4" />
+            <Image src="/logo.png" alt="average.ai logo" width={56} height={56} className="h-14 mb-4" />
             <div className="cursor-blink"></div>
           </div>
         </div>
