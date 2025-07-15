@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     // CAMBIAR DURACIÓN DE LA PANTALLA DE CARGA (en milisegundos)
-    const loadingDuration = 1500;
+    const loadingDuration = 1700;
     
     const timer = setTimeout(() => {
       setShowLoading(false);
@@ -52,7 +52,7 @@ export default function Home() {
       {showLoading && (
         <div className="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center loading-screen">
           <div className="flex flex-col items-center">
-            <Image src="/logo.png" alt="average.ai logo" width={56} height={56} style={{ width: 56, height: 56, objectFit: 'contain' }} priority />
+            <Image src="/logo.png" alt="average.ai logo" width={280} height={80} className="mx-auto w-auto h-auto max-w-[200px] sm:max-w-[240px] md:max-w-[280px] mb-4" priority />
             <div className="cursor-blink"></div>
           </div>
         </div>
@@ -73,7 +73,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="text-center mt-10 mb-20">
-        <Image src="/logo.png" alt="average.ai logo" width={56} height={56} style={{ width: 56, height: 56, objectFit: 'contain' }} className="mx-auto mb-6" priority />
+        <Image src="/logo.png" alt="average.ai logo" width={280} height={80} className="mx-auto w-auto h-auto max-w-[200px] sm:max-w-[240px] md:max-w-[280px] mb-6" priority />
         <h1 className="text-3xl md:text-5xl font-light leading-tight mb-6">
           No somos una IA.<br />
           <span className="text-[#71F14F]">Somos Humanos + IA</span><br />
