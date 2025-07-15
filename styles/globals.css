@@ -24,3 +24,129 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes peso-float {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-180px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-220px) scale(1.15);
+  }
+}
+
+.peso-sign {
+  animation: peso-float 2.8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes breatheGreen {
+  0%, 100% {
+    box-shadow: 0 0 1 5 #71F14F;
+    opacity: 0.7;
+  }
+  50% {
+    box-shadow: 0 0 48px 16px #71F14F;
+    opacity: 1;
+  }
+}
+
+.glow-green {
+  box-shadow: 0 0 32px 5 px #71F14F;
+  animation: breatheGreen 3.2s ease-in-out infinite;
+}
+
+@keyframes breatheGreenSoft {
+  0%, 100% {
+    box-shadow: 0 0 0 0 #71F14F;
+    opacity: 0.95;
+  }
+  50% {
+    box-shadow: 0 0 16px 4px #71F14F;
+    opacity: 1;
+  }
+}
+
+.glow-green-soft {
+  box-shadow: 0 0 8px 2px #71F14F44;
+  animation: breatheGreenSoft 2.8s ease-in-out infinite;
+}
+
+@keyframes slideInLeftFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left-fade {
+  animation: slideInLeftFade 0.8s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+@keyframes cursorBlink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes loadingScreen {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  80% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes logoMorph {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1) translate(var(--morph-x), var(--morph-y));
+  }
+}
+
+.loading-screen {
+  animation: loadingScreen 0.8s ease-in-out forwards;
+}
+
+.logo-morph {
+  animation: logoMorph 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.cursor-blink {
+  animation: cursorBlink 1s infinite;
+  width: 2px;
+  height: 24px;
+  background-color: #71F14F;
+  display: inline-block;
+  margin-left: 4px;
+}
