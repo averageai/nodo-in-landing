@@ -93,7 +93,7 @@ export default function Home() {
       <section className="text-center max-w-3xl mx-auto mb-24">
         <h2 className="text-3xl mb-4">¿Quiénes somos?</h2>
         <p className="text-gray-400">
-          Somos una agencia de Humanos + IA. Creamos soluciones tecnologícas que automatizan, organizan y escalan tu operación, sin que tengas que entender tecnología. Nos enfocamos en lo que funciona, no en lo que suena bonito.
+        Somos una agencia de marketing impulsada por tecnología. Aquí, Humanos + IA acompañamos negocios como el tuyo con estrategias claras, herramientas actuales y sistemas que trabajan en segundo plano. No venimos a explicarte tecnología, sino a ayudarte a crecer con ella. Porque lo importante no es parecer innovador, es funcionar mejor.
         </p>
       </section>
 
