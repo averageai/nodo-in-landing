@@ -1,0 +1,140 @@
+<!-- Simple Admin Panel Structure -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Asistente Belleza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-8">Panel de Administración - Asistente Belleza</h1>
+        
+        <!-- Services Management -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">Gestión de Servicios</h2>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="px-4 py-2 text-left">Servicio</th>
+                            <th class="px-4 py-2 text-left">Precio</th>
+                            <th class="px-4 py-2 text-left">Duración</th>
+                            <th class="px-4 py-2 text-left">Estado</th>
+                            <th class="px-4 py-2 text-left">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="services-table">
+                        <!-- Dynamic content loaded here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <button onclick="addNewService()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                + Agregar Servicio
+            </button>
+        </div>
+        
+        <!-- Business Hours -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">Horarios de Atención</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Dynamic business hours form -->
+                <div id="business-hours-form">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calendar Integration -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4">Configuración de Calendario</h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Google Calendar ID</label>
+                    <input type="text" id="calendar-id" class="w-full border rounded px-3 py-2" 
+                           placeholder="your-calendar@gmail.com">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium mb-2">Zona Horaria</label>
+                    <select id="timezone" class="w-full border rounded px-3 py-2">
+                        <option value="America/Bogota">Colombia (Bogotá)</option>
+                        <option value="America/Mexico_City">México</option>
+                        <option value="America/Argentina/Buenos_Aires">Argentina</option>
+                    </select>
+                </div>
+                
+                <button onclick="saveCalendarConfig()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Guardar Configuración
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Admin Panel JavaScript
+        
+        async function loadServices() {
+            try {
+                const response = await fetch('/api/services');
+                const services = await response.json();
+                
+                const tableBody = document.getElementById('services-table');
+                tableBody.innerHTML = services.map(service => `
+                    <tr>
+                        <td class="px-4 py-2">${service.service_name}</td>
+                        <td class="px-4 py-2">$${service.price.toLocaleString()}</td>
+                        <td class="px-4 py-2">${service.duration_minutes} min</td>
+                        <td class="px-4 py-2">
+                            <span class="px-2 py-1 rounded text-sm ${service.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                                ${service.is_active ? 'Activo' : 'Inactivo'}
+                            </span>
+                        </td>
+                        <td class="px-4 py-2">
+                            <button onclick="editService(${service.id})" class="text-blue-600 hover:underline mr-2">Editar</button>
+                            <button onclick="toggleService(${service.id})" class="text-red-600 hover:underline">
+                                ${service.is_active ? 'Desactivar' : 'Activar'}
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading services:', error);
+            }
+        }
+        
+        async function saveService(serviceData) {
+            try {
+                const response = await fetch('/api/services', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(serviceData)
+                });
+                
+                if (response.ok) {
+                    alert('Servicio guardado exitosamente');
+                    loadServices();
+                } else {
+                    alert('Error al guardar el servicio');
+                }
+            } catch (error) {
+                console.error('Error saving service:', error);
+            }
+        }
+        
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadServices();
+            loadBusinessHours();
+            loadCalendarConfig();
+        });
+    </script>
+</body>
+</html>

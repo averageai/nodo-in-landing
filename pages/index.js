@@ -66,7 +66,7 @@ export default function Home() {
 
       {/* Header */}
       <header className="w-full flex justify-end max-w-7xl mx-auto">
-        <a href="https://panel.average.lat" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white border px-4 py-2 rounded border-gray-600">
+        <a href="/admin-panel" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white border px-4 py-2 rounded border-gray-600">
           Admin Panel
         </a>
       </header>
