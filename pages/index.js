@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 function Navbar({ onVisible }) {
   const [scrolled, setScrolled] = useState(false);
   const [show, setShow] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll);
@@ -21,6 +22,17 @@ function Navbar({ onVisible }) {
       onVisible && onVisible(false);
     }
   }, [scrolled, onVisible]);
+  // Cerrar menú al hacer clic fuera
+  useEffect(() => {
+    if (!menuOpen) return;
+    function handleClick(e) {
+      if (!e.target.closest('.mobile-menu') && !e.target.closest('.hamburger-btn')) {
+        setMenuOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [menuOpen]);
   if (!show) return null;
   return (
     <nav className={
@@ -29,15 +41,32 @@ function Navbar({ onVisible }) {
       <div className="flex items-center justify-center h-11 w-11 bg-black rounded-xl shadow-lg ml-3 mr-6">
         <Image src="/android-chrome-512x512.png" alt="average.ai logo" width={36} height={36} className="rounded object-contain" />
       </div>
-      <div className="flex-1 flex items-center justify-center gap-6 pl-8 pr-8">
+      {/* Desktop menu */}
+      <div className="hidden md:flex flex-1 items-center justify-center gap-6 pl-8 pr-8">
         <Link href="#asistentes" className="text-gray-200 px-3 py-1.5 rounded transition hover:bg-[#232b28] hover:text-[#71F14F] focus:outline-none text-base">Asistentes IA</Link>
         <Link href="#agency" className="text-gray-200 px-3 py-1.5 rounded transition hover:bg-[#232b28] hover:text-[#71F14F] focus:outline-none text-base">La Agency</Link>
         <Link href="#contacto" className="text-gray-200 px-3 py-1.5 rounded transition hover:bg-[#232b28] hover:text-[#71F14F] focus:outline-none text-base">Contacto</Link>
         <Link href="/login" className="text-gray-200 px-3 py-1.5 rounded transition hover:bg-[#232b28] hover:text-[#71F14F] focus:outline-none text-base">Login</Link>
       </div>
-      <div className="flex items-center justify-end min-w-[180px] ml-6">
-        <a href="https://wa.me/447717190625" className="bg-[#71F14F] text-black px-5 py-1.5 rounded font-semibold hover:bg-green-400 transition glow-green-soft shadow-lg text-base">Conócenos</a>
+      <div className="hidden md:flex items-center justify-end min-w-[180px] ml-6">
+        <a href="#contacto" className="bg-[#71F14F] text-black px-5 py-1.5 rounded font-semibold hover:bg-green-400 transition glow-green-soft shadow-lg text-base">Conócenos</a>
       </div>
+      {/* Mobile hamburger */}
+      <button className="md:hidden ml-auto mr-4 hamburger-btn" aria-label="Abrir menú" onClick={() => setMenuOpen(v => !v)}>
+        <span className="block w-7 h-1 bg-gray-300 rounded mb-1 transition-all" style={{ transform: menuOpen ? 'rotate(45deg) translateY(8px)' : 'none' }}></span>
+        <span className={`block w-7 h-1 bg-gray-300 rounded mb-1 transition-all ${menuOpen ? 'opacity-0' : ''}`}></span>
+        <span className="block w-7 h-1 bg-gray-300 rounded transition-all" style={{ transform: menuOpen ? 'rotate(-45deg) translateY(-8px)' : 'none' }}></span>
+      </button>
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div className="mobile-menu absolute top-16 right-2 w-56 bg-[#181c1b]/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-[#232b28] flex flex-col py-4 px-4 z-50 animate-navbar-fade-in-strong">
+          <Link href="#asistentes" className="text-gray-200 px-3 py-2 rounded transition hover:bg-[#232b28] hover:text-[#71F14F] text-base mb-1" onClick={() => setMenuOpen(false)}>Asistentes IA</Link>
+          <Link href="#agency" className="text-gray-200 px-3 py-2 rounded transition hover:bg-[#232b28] hover:text-[#71F14F] text-base mb-1" onClick={() => setMenuOpen(false)}>La Agency</Link>
+          <Link href="#contacto" className="text-gray-200 px-3 py-2 rounded transition hover:bg-[#232b28] hover:text-[#71F14F] text-base mb-1" onClick={() => setMenuOpen(false)}>Contacto</Link>
+          <Link href="/login" className="text-gray-200 px-3 py-2 rounded transition hover:bg-[#232b28] hover:text-[#71F14F] text-base mb-2" onClick={() => setMenuOpen(false)}>Login</Link>
+          <a href="#contacto" className="bg-[#71F14F] text-black px-4 py-2 rounded font-semibold hover:bg-green-400 transition glow-green-soft shadow-lg text-base mt-2" onClick={() => setMenuOpen(false)}>Conócenos</a>
+        </div>
+      )}
     </nav>
   );
 }

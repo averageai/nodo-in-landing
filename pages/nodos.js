@@ -151,48 +151,11 @@ export default function Nodos() {
 
       <section className="max-w-5xl mx-auto mb-24 grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 className="text-3xl mb-4">¿Qué hace un Nodo IN?</h1>
-          <p className="text-gray-400">
+          <h1 className="text-3xl mb-4">¿Qué hace un Asistente IA?</h1>
+          <p className="text-gray-400 mb-8">
             Es un sistema conectado a WhatsApp que atiende por ti y cierra ventas sin depender de operadores. Responde, valida, organiza y confirma. Solo necesitas uno.
           </p>
-        </div>
-        <div className="flex flex-col gap-4">
-          <button
-            className="bg-[#181818] border border-gray-700 px-6 py-4 rounded text-white hover:bg-[#1f1f1f] relative"
-            onMouseEnter={() => setHovered(0)}
-            onMouseLeave={() => setHovered(null)}
-          >
-            {hovered === 0 ? 'Próximamente' : '💇‍♀️ Probar Nodo para Belleza'}
-          </button>
-          <button
-            className="bg-[#181818] border border-gray-700 px-6 py-4 rounded text-white hover:bg-[#1f1f1f] relative"
-            onMouseEnter={() => setHovered(1)}
-            onMouseLeave={() => setHovered(null)}
-          >
-            {hovered === 1 ? 'Próximamente' : '🍔 Probar Nodo para Comidas'}
-          </button>
-          <button
-            className="bg-[#181818] border border-gray-700 px-6 py-4 rounded text-white hover:bg-[#1f1f1f] relative"
-            onMouseEnter={() => setHovered(2)}
-            onMouseLeave={() => setHovered(null)}
-          >
-            {hovered === 2 ? 'Próximamente' : '📆 Probar Nodo Asistente Personal'}
-          </button>
-        </div>
-      </section>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-
-        {/* 📌 Lado izquierdo: Texto + asistentes */}
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            ¿Qué hace un Asistente IA?
-          </h2>
-          <p className="text-gray-300 mb-8 max-w-lg">
-            Es un sistema conectado a WhatsApp que atiende por ti y cierra ventas sin depender de operadores.
-            Responde, valida, organiza y confirma. Solo necesitas uno.
-          </p>
-
+          {/* Aquí va el acordeón de asistentes IA con los botones Probar DEMO y lógica de 'Próximamente' */}
           <div className="flex flex-col gap-4">
             {assistants.map((assistant) => (
               <div key={assistant.id} className="space-y-0">
@@ -256,57 +219,11 @@ export default function Nodos() {
             ))}
           </div>
         </div>
-
-        {/* 📱 Lado derecho: Mockup iPhone con imagen */}
-        <div className="flex justify-center relative">
-          <div
-            className="w-[300px] h-[620px] rounded-[2.5rem] border-[10px] border-black overflow-hidden transform transition duration-700 hover:scale-105 relative animate-vanish-in glow-green"
-            onMouseEnter={() => setShowSigns(true)}
-            onMouseLeave={() => setShowSigns(false)}
-            onTouchStart={() => setShowSigns(true)}
-            onTouchEnd={() => setShowSigns(false)}
-            onTouchCancel={() => setShowSigns(false)}
-          >
-            <Image
-              src="/preview-nodo-final.png"
-              alt="Demo Asistente IA"
-              width={300}
-              height={620}
-              className="object-cover"
-            />
-            {/* Animación de signos variados solo si showSigns es true */}
-            {showSigns && (
-              <div className="pointer-events-none absolute inset-0 z-10">
-                {[...Array(8)].map((_, i) => {
-                  if (i >= visibleSigns) return null;
-                  const symbols = [
-                    { char: '$', color: '#71F14F' },
-                    { char: '?', color: '#3B82F6' },
-                    { char: '!', color: '#EF4444' },
-                  ];
-                  const { char, color } = symbols[Math.floor(Math.random() * symbols.length)];
-                  return (
-                    <span
-                      key={i}
-                      className={`peso-sign absolute left-[60%] font-bold select-none`}
-                      style={{
-                        fontSize: '1.6rem',
-                        bottom: `${10 + i * 10}%`,
-                        left: `calc(60% + ${Math.sin(i) * 30}px)`,
-                        color,
-                        opacity: 0.85,
-                        animationDelay: `${i * 0.5}s`,
-                      }}
-                    >
-                      {char}
-                    </span>
-                  );
-                })}
-              </div>
-            )}
-          </div>
+        <div className="flex justify-center md:justify-end">
+          {/* Aquí va la imagen, por ejemplo: */}
+          <Image src="/preview-nodo-final.png" alt="Demo WhatsApp" width={320} height={600} className="rounded-2xl shadow-2xl glow-green" />
         </div>
-      </div>
+      </section>
     </div>
   );
 }
