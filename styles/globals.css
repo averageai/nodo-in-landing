@@ -19,6 +19,11 @@
   }
 }
 
+body, html {
+  background: #000 !important;
+  min-height: 100vh;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

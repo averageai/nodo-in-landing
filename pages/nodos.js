@@ -1,8 +1,62 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import Head from 'next/head';
+
+function GreenStars() {
+  const canvasRef = useRef();
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    let stars = Array.from({ length: 32 }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      speed: 1 + Math.random() * 1.5,
+      size: 1 + Math.random() * 1.5,
+    }));
+    let running = true;
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let s of stars) {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, 2 * Math.PI);
+        ctx.fillStyle = '#71F14F';
+        ctx.globalAlpha = 0.5;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+        s.x += s.speed * 0.7;
+        s.y += s.speed;
+        if (s.y > window.innerHeight || s.x > window.innerWidth) {
+          s.x = Math.random() * window.innerWidth * 0.7;
+          s.y = -10;
+        }
+      }
+      if (running) requestAnimationFrame(draw);
+    }
+    draw();
+    return () => { running = false; };
+  }, []);
+  return <canvas ref={canvasRef} width={typeof window !== 'undefined' ? window.innerWidth : 1920} height={typeof window !== 'undefined' ? window.innerHeight : 1080} className="fixed inset-0 w-full h-full pointer-events-none z-0" style={{ mixBlendMode: 'lighten' }} />;
+}
+
+function DiagonalLines() {
+  return (
+    <svg className="fixed inset-0 w-full h-full z-0 pointer-events-none" width="100%" height="100%" style={{ opacity: 0.12 }}>
+      <defs>
+        <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#71F14F" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#ededed" stopOpacity="0.05" />
+        </linearGradient>
+      </defs>
+      {[...Array(8)].map((_, i) => (
+        <line key={i} x1={-200 + i * 220} y1={0} x2={200 + i * 220} y2={1000} stroke="url(#line)" strokeWidth="2" />
+      ))}
+    </svg>
+  );
+}
 
 export default function Nodos() {
+  const [hovered, setHovered] = useState(null);
   const [showSigns, setShowSigns] = useState(false);
   const [visibleSigns, setVisibleSigns] = useState(0);
   const [showLoading, setShowLoading] = useState(true);
@@ -69,7 +123,13 @@ export default function Nodos() {
   };
 
   return (
-    <main className="min-h-screen bg-black text-white px-6 py-12">
+    <div className="min-h-screen bg-black text-white px-6 py-10 relative">
+      <DiagonalLines />
+      <GreenStars />
+      <Head>
+        <title>Cómo funciona Nodo IN | average.ai</title>
+        <meta name="description" content="Descubre cómo funcionan los Nodos IN y pruébalos por sector." />
+      </Head>
       {/* Pantalla de carga */}
       {showLoading && (
         <div className="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center loading-screen">
@@ -88,6 +148,38 @@ export default function Nodos() {
           </span>
         </Link>
       </div>
+
+      <section className="max-w-5xl mx-auto mb-24 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 className="text-3xl mb-4">¿Qué hace un Nodo IN?</h1>
+          <p className="text-gray-400">
+            Es un sistema conectado a WhatsApp que atiende por ti y cierra ventas sin depender de operadores. Responde, valida, organiza y confirma. Solo necesitas uno.
+          </p>
+        </div>
+        <div className="flex flex-col gap-4">
+          <button
+            className="bg-[#181818] border border-gray-700 px-6 py-4 rounded text-white hover:bg-[#1f1f1f] relative"
+            onMouseEnter={() => setHovered(0)}
+            onMouseLeave={() => setHovered(null)}
+          >
+            {hovered === 0 ? 'Próximamente' : '💇‍♀️ Probar Nodo para Belleza'}
+          </button>
+          <button
+            className="bg-[#181818] border border-gray-700 px-6 py-4 rounded text-white hover:bg-[#1f1f1f] relative"
+            onMouseEnter={() => setHovered(1)}
+            onMouseLeave={() => setHovered(null)}
+          >
+            {hovered === 1 ? 'Próximamente' : '🍔 Probar Nodo para Comidas'}
+          </button>
+          <button
+            className="bg-[#181818] border border-gray-700 px-6 py-4 rounded text-white hover:bg-[#1f1f1f] relative"
+            onMouseEnter={() => setHovered(2)}
+            onMouseLeave={() => setHovered(null)}
+          >
+            {hovered === 2 ? 'Próximamente' : '📆 Probar Nodo Asistente Personal'}
+          </button>
+        </div>
+      </section>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 
@@ -215,6 +307,6 @@ export default function Nodos() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
